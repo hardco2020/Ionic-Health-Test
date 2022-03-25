@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HealthKit } from '@awesome-cordova-plugins/health-kit/ngx';
+// import { HealthKit } from '@awesome-cordova-plugins/health-kit/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +14,7 @@ import { HealthKit } from '@awesome-cordova-plugins/health-kit/ngx';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    HealthKit,
+    // HealthKit,
   ],
   bootstrap: [AppComponent],
 })
