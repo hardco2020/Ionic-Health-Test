@@ -11,6 +11,15 @@ import { Platform } from '@ionic/angular';
 })
 export class Tab2Page {
   height: number;
+  bloodPressure = 'No Data';
+  bodyFat = 'No Data';
+  bodyTemperature = 'No Data';
+  heartRate = 'No Data';
+  highHeartRateNotifications = 'No Data';
+  irregularRhythmNotifications = 'No Data';
+  lowHeartRateNotifications = 'No Data';
+  steps = 'No Data';
+  weight = 'No Data';
   currentHeight = 'No Data';
   stepcount = 'No Data';
   workouts = [];
@@ -26,12 +35,19 @@ export class Tab2Page {
               'HKWorkoutTypeIdentifier',
               'HKQuantityTypeIdentifierActiveEnergyBurned',
               'HKQuantityTypeIdentifierDistanceCycling',
+              'HKQunatityTypeIdentifierWeight',
+              'HKQuantityTypeIdentifierBodyFatPercentage',
+              'HKQuantityTypeIdentifierHeartRate',
+              'HKCategoryTypeIdentifierHighHeartRate',
+              'HKCategoryTypeIdentifierIrregularHeartRhythmEvent',
+              'HKCategoryTypeIdentifierLowHeartRate',
             ],
             writeTypes: [
               'HKQuantityTypeIdentifierHeight',
               'HKWorkoutTypeIdentifier',
               'HKQuantityTypeIdentifierActiveEnergyBurned',
               'HKQuantityTypeIdentifierDistanceCycling',
+              'HKQunatityTypeIdentifierWeight',
             ],
           };
           this.healthKit.requestAuthorization(options).then((_) => {
@@ -67,8 +83,21 @@ export class Tab2Page {
     });
   }
 
+  // Reset()
+  reset() {
+    console.log('hello');
+    this.loadHealthData();
+  }
   // Reload all our data
   loadHealthData() {
+    this.healthKit.readWeight({ unit: 'kg' }).then(
+      (val) => {
+        this.weight = val.value;
+      },
+      (err) => {
+        console.log('No Weight: ', err);
+      }
+    );
     this.healthKit.readHeight({ unit: 'cm' }).then(
       (val) => {
         this.currentHeight = val.value;

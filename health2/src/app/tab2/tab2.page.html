@@ -16,8 +16,8 @@
     ></ion-input>
   </ion-item> -->
   <ion-item>
-    <ion-label stacked>Current Height:</ion-label>
-    <ion-input type="text" [(ngModel)]="currentHeight" readonly></ion-input>
+    <ion-label stacked>Height:</ion-label>
+    <ion-input type="text" [(ngModel)]="height" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>Blood Pressure:</ion-label>
@@ -31,11 +31,11 @@
     <ion-label stacked>Body Temperature:</ion-label>
     <ion-input type="text" [(ngModel)]="bodyTemperature" readonly></ion-input>
   </ion-item>
-  <ion-item>
+  <!-- <ion-item>
     <ion-label stacked>Body Fat Percentage:</ion-label>
     <ion-input type="text" [(ngModel)]="bodyFat" readonly></ion-input>
-  </ion-item>
-  <ion-item>
+  </ion-item> -->
+  <!-- <ion-item>
     <ion-label stacked>Heart Rate:</ion-label>
     <ion-input type="text" [(ngModel)]="heartRate" readonly></ion-input>
   </ion-item>
@@ -66,10 +66,12 @@
   <ion-item>
     <ion-label stacked>Steps last 24h</ion-label>
     <ion-input type="text" [(ngModel)]="stepcount" readonly></ion-input>
-  </ion-item>
+  </ion-item> -->
 
-  <ion-button ion-button full (click)="reset()">Reset</ion-button>
-  <ion-button full (click)="saveWorkout()">Set a Workout</ion-button>
+  <div class="ButtonContainer">
+    <ion-button ion-button full (click)="reset()">Reset</ion-button>
+  </div>
+  <!-- <ion-button full (click)="saveWorkout()">Set a Workout</ion-button> -->
 
   <!-- <ion-list>
     <ion-card *ngFor="let workout of workouts">
